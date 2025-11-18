@@ -1,10 +1,22 @@
 import { createBrowserRouter } from "react-router";
-import App from "../App.jsx";
+import AppLayout from "../assets/layouts/AppLayout.jsx";
+import AgenceLayout from "../assets/layouts/AgenceLayout.jsx"
+import ProjectsLayout from "../assets/layouts/ProjectsLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: App
+    Component: AppLayout,
+    children: [
+      {
+        path: "/agence",
+        Component: AgenceLayout
+      },
+      {
+        path: "/projects",
+        Component: ProjectsLayout
+      }
+    ]
   },
 ]);
 
