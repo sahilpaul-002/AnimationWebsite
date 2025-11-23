@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import HomeLayout from "./assets/layouts/HomeLayout"
+import { Outlet } from 'react-router'
 
 function App() {
 
   return (
-    <HomeLayout />
+    <>
+      <Outlet />
+    </>
   )
 }
 
