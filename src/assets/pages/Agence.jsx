@@ -2,8 +2,14 @@ import { useGSAP } from '@gsap/react';
 import { gsap, Linear } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useRef } from 'react'
+import ChangeRoute from '../components/otherComponents/ChangeRoute'
 
 export default function Agence() {
+  // Register gsap plugins
+  gsap.registerPlugin(useGSAP);
+  // Register the scroll triger plugin
+  gsap.registerPlugin(ScrollTrigger);
+
   // Ref to ref the image div
   const imageDivRef = useRef(null);
   // Ref to refer the images
@@ -22,9 +28,6 @@ export default function Agence() {
     "/k72_teamMembers/Michele_480X640.jpg",
     "/k72_teamMembers/SophieA_480x640.jpg",
   ]
-
-  // Register the scroll triger plugin
-  gsap.registerPlugin(ScrollTrigger);
 
   // useGSAP to apply images animation
   useGSAP(() => {
@@ -49,28 +52,33 @@ export default function Agence() {
   })
 
   return (
-    <div className='agence-wrapper'>
-      <div className="agenceLanding-wrapper w-[99vw] p-2 relative">
-        <div ref={imageDivRef} className="agenceLanding-teamMemebersImages w-[16vw] h-[20vw] rounded-xl sticky top-20 left-100 overflow-hidden">
-          <img ref={teamMatesImageRef} className='w-full h-full object-cover' src="/k72_teamMembers/Carl_480x640.jpg" alt="Person 1" />
-        </div>
-        <div className="agenceLanding-texts w-full h-fit flex flex-col justitfy-center items-center gap-6 relative">
-          <div className="agenceLanding-headerText w-full h-fit flex flex-col justify-center items-center">
-            <h1 className='w-fit h-fit text-[20vw] text-black text-center leading-[16vw] tracking-tight font-semibold'>
-              SEVEN7Y
-            </h1>
-            <h1 className='w-fit h-fit text-[20vw] text-black text-center leading-[16vw] tracking-tight font-semibold'>
-              TWO
-            </h1>
+    <>
+      {/* Route changing Animation */}
+      <ChangeRoute />
+      {/* Agence Page */}
+      <div className='agence-wrapper'>
+        <div className="agenceLanding-wrapper w-[99vw] p-2 relative">
+          <div ref={imageDivRef} className="agenceLanding-teamMemebersImages w-[16vw] h-[20vw] rounded-xl sticky top-20 left-100 overflow-hidden">
+            <img ref={teamMatesImageRef} className='w-full h-full object-cover' src="/k72_teamMembers/Carl_480x640.jpg" alt="Person 1" />
           </div>
-          <div className="agenceLanding-subText w-full h-fit flex justify-end items-center">
-            <p className='w-[52vw] h-fit text-[3vw] text-black leading-[3vw] tracking-tighter'>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis dolor aliquam vero architecto! Nesciunt iusto quas, tenetur culpa beatae praesentium aut vero asperiores omnis earum qui, deleniti quia inventore cumque, ratione alias illo eum corporis rem. Accusamus, vitae sapiente fuga quia quae eos quos at?
-            </p>
+          <div className="agenceLanding-texts w-full h-fit flex flex-col justitfy-center items-center gap-6 relative">
+            <div className="agenceLanding-headerText w-full h-fit flex flex-col justify-center items-center">
+              <h1 className='w-fit h-fit text-[20vw] text-black text-center leading-[16vw] tracking-normal font-normal'>
+                SEVEN7Y
+              </h1>
+              <h1 className='w-fit h-fit text-[20vw] text-black text-center leading-[16vw] tracking-normal font-normal'>
+                TWO
+              </h1>
+            </div>
+            <div className="agenceLanding-subText w-full h-fit flex justify-end items-center">
+              <p className='w-[52vw] h-fit text-[3vw] text-black leading-[3vw] tracking-tighter'>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis dolor aliquam vero architecto! Nesciunt iusto quas, tenetur culpa beatae praesentium aut vero asperiores omnis earum qui, deleniti quia inventore cumque, ratione alias illo eum corporis rem. Accusamus, vitae sapiente fuga quia quae eos quos at?
+              </p>
+            </div>
           </div>
         </div>
+        <div className="section2 bg-green-300 w-screen h-screen"></div>
       </div>
-      <div className="section2 bg-green-300 w-screen h-screen"></div>
-    </div>
+    </>
   )
 }
