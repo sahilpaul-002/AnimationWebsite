@@ -23,7 +23,7 @@ export default function ChangeRoute() {
             {
                 height: "100vh",
                 stagger: { amount: -0.4 },
-                duration: 1,
+                duration: 0.7,
                 onComplete: () => {
                     // Remove the background color to reveal the new page
                     changeRouteContainerRef.current.style.backgroundColor = "transparent";
@@ -34,7 +34,7 @@ export default function ChangeRoute() {
         tl.to(".changeRoutePage-animationBlocks", {
             y: "100%",
             stagger: { amount: -0.4 },
-            duration: 1,
+            duration: 0.7,
             // onComplete: () => {
             //     // Remove the change route component from the DOM
             //     changeRouteContainerRef.current.style.display = "none";
